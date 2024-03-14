@@ -1,0 +1,19 @@
+-- "Fun": small untyped functional language
+
+Prog.   Program ::= [Def] Main                     ;
+
+DMain.  Main    ::= "main" "=" "print" Expr3 ";"    ;
+DDef.   Def     ::= Ident [Ident] "=" Expr        ;
+
+terminator Def ";"                                 ;
+
+terminator Ident ""                                ;
+
+Var.   Expr3    ::= Ident                          ;
+App.   Expr2    ::= Expr2 Expr3                      ;
+Lambda.   Expr     ::= "\\" Ident "->" Expr            ;
+
+coercions Expr 3                                    ;
+
+comment "--"                                       ;
+comment "{-" "-}"                                  ;
