@@ -21,9 +21,8 @@ main :: IO ()
 main = do
   filepath <- getArgs
   if null filepath
-      then usage
-      else readFile (head filepath) >>= run
-    
+    then usage
+    else readFile (head filepath) >>= run
 
 -- | Main pipeline.
 run :: String -> IO ()

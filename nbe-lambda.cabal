@@ -63,6 +63,7 @@ library
     Fun.Print
     Fun.Skel
     LambdaCalculus
+    NbELambda
 
   -- Modules included in this library but not exported.
   -- other-modules:
@@ -73,7 +74,7 @@ library
   -- Other library packages from which modules are imported.
   build-depends:
     , array
-    , base        ^>=4.17.2.1
+    , base        >=4.17.2.1
     , containers
     , mtl
 
@@ -99,7 +100,7 @@ executable nbe-lambda
   -- Other library packages from which modules are imported.
   build-depends:
     , array
-    , base        ^>=4.17.2.1
+    , base        >=4.17.2.1
     , containers
     , mtl
     , nbe-lambda

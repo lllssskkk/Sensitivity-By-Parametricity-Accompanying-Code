@@ -1,5 +1,4 @@
 {-# LANGUAGE LambdaCase #-}
-
 module LambdaCalculus where
 
 import Control.Monad.Except
@@ -18,11 +17,9 @@ data Cxt = Cxt
   , cxtEnv :: Env
   }
 
-
 -- | Entry point: Program computes a number.
 interpret :: Program -> Except String Closure
 interpret (Prog defs (DMain mainExp)) = do
-  -- when (strategy == CallByName) $ throwError "call-by-name"
   eval cxt mainExp
  where
   cxt =
@@ -38,7 +35,7 @@ eval :: Cxt -> Expr -> Except String Closure
 eval cxt = \case
   Var x -> do
     case Map.lookup x (cxtEnv cxt) of
-      Just (VClosure env x e) -> eval (cxt{cxtEnv = env}) e
+      Just (VClosure env _x e) -> eval (cxt{cxtEnv = env}) e
       Nothing -> case Map.lookup x (cxtSig cxt) of
         Just e -> eval (cxt{cxtEnv = Map.empty}) e
         Nothing -> throwError ("unbound variable" ++ show x)
@@ -47,5 +44,5 @@ eval cxt = \case
     operator' <- eval cxt operator
     case operator' of
       VClosure env head body -> do
-        operator' <- eval cxt (Lambda head operand)
-        eval (cxt{cxtEnv = Map.insert head operator' env}) body
+        operand' <- eval cxt (Lambda head operand)
+        eval (cxt{cxtEnv = Map.insert head operand' env}) body
