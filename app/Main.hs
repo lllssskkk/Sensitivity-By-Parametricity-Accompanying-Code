@@ -14,7 +14,7 @@ import Fun.Abs (Program)
 import Fun.Par (myLexer, pProgram)
 import Fun.Print (printTree)
 
-import LambdaCalculus (interpret)
+import NbELambda (interpret)
 
 -- | Entry point.
 main :: IO ()

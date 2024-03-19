@@ -9,5 +9,6 @@ syntax: ./Fun.cf
 .PHONY: clean
 clean:
 	cabal clean
+	rm ./nbe-lambda
 	rm -rf src/Fun/*
 
