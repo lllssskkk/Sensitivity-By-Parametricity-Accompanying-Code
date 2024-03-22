@@ -64,6 +64,7 @@ library
     Fun.Skel
     LambdaCalculus
     NbELambda
+    NbETypedLambda
 
   -- Modules included in this library but not exported.
   -- other-modules:
@@ -77,6 +78,8 @@ library
     , base        >=4.17.2.1
     , containers
     , mtl
+    , pretty
+    , deepseq
 
   -- Directories containing source files.
   hs-source-dirs:   src

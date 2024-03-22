@@ -9,11 +9,12 @@ terminator Def ";"                                 ;
 
 terminator Ident ""                                ;
 
+
 Var.   Expr3    ::= Ident                          ;
 App.   Expr2    ::= Expr2 Expr3                      ;
 Lambda.   Expr     ::= "\\" Ident "->" Expr            ;
 
-coercions Expr 3                                    ;
+coercions Expr 3                                   ;
 
 comment "--"                                       ;
 comment "{-" "-}"                                  ;
